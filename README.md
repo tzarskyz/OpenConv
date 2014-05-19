@@ -21,6 +21,10 @@ A 10.9 SDK-based, pre-compiled version of OpenConv was provided with the source 
 Changelog
 ---------
 
+**v1.2.1:**
+
+* Bug fix: Fix update localization.
+
 **v1.2:**
 
 * New Feature: Check for updates.

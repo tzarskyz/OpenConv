@@ -18,32 +18,44 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //
 
+/* Update */
+
+"LABEL_WE_ARE_UP_TO_DATE"                          = "最新版本";
+"LABEL_NICE"                                       = "太棒了";
+"LABEL_YOU_ARE_USING_THE_LASTEST_VERSION_OF"       = "您正在使用最新版本的 %@。";
+
+"LABEL_NEW_VERSION_AVAILABLE"                      = "有新版本可供使用！";
+"LABEL_SURE"                                       = "立刻下載";
+"LABEL_MAYBE_NEXT_TIME"                            = "不，謝謝";
+"LABEL_RELEASE_NOTE"                               = "查看更新日誌";
+"LABEL_THERE_IS_A_NEW_VERSION"                     = "目前有一更新版本可供下載：\n\n版本 %@ （您目前的版本：%@）\n\n您要立刻下載新版本嗎？";
+
 /* Drop Zone */
 
-"LABEL_DRAG_FILES_HERE_TO_START"                    = "拖曳欲轉換的檔案至此";
-"LABEL_DROP_FILES_TO_STRAT_CONVERTING"              = "解除拖曳以進行轉換";
-"LABEL_CONVERTING_PLEASE_WAIT"                      = "正在進行轉換\n請稍候...";
-"LABEL_NOTIFICATION_TITLE"                          = "轉換完成！";
-"LABEL_NOTIFICATION_INFO_TEXT"                      = "檔案 \"%@\" 轉換完成。";
-"LABEL_NOTIFICATION_ERROR_TITLE"                    = "轉換錯誤...";
-"LABEL_NOTIFICATION_ERROR_INFO_TEXT"                = "檔案 \"%@\" 無法識別。";
-"LABEL_NOTIFICATION_PROGRESS_INFO_TEXT"             = "%li / %li（編碼：%@）";
-"LABEL_NOTIFICATION_COMPLIETE_TITLE"                = "全數完成！";
-"LABEL_NOTIFICATION_COMPLIETE_INFO_TEXT"            = "共處理了 %li 個檔案。";
-"LABEL_NOTIFICATION_COMPLIETE_PROGRESS_INFO_TEXT"   = "費時：%f 秒";
+"LABEL_DRAG_FILES_HERE_TO_START"                   = "拖曳欲轉換的檔案至此";
+"LABEL_DROP_FILES_TO_STRAT_CONVERTING"             = "解除拖曳以進行轉換";
+"LABEL_CONVERTING_PLEASE_WAIT"                     = "正在進行轉換\n請稍候...";
+"LABEL_NOTIFICATION_TITLE"                         = "轉換完成！";
+"LABEL_NOTIFICATION_INFO_TEXT"                     = "檔案 \"%@\" 轉換完成。";
+"LABEL_NOTIFICATION_ERROR_TITLE"                   = "轉換錯誤...";
+"LABEL_NOTIFICATION_ERROR_INFO_TEXT"               = "檔案 \"%@\" 無法識別。";
+"LABEL_NOTIFICATION_PROGRESS_INFO_TEXT"            = "%li / %li（編碼：%@）";
+"LABEL_NOTIFICATION_COMPLIETE_TITLE"               = "全數完成！";
+"LABEL_NOTIFICATION_COMPLIETE_INFO_TEXT"           = "共處理了 %li 個檔案。";
+"LABEL_NOTIFICATION_COMPLIETE_PROGRESS_INFO_TEXT"  = "費時：%f 秒";
 
 /* Pasteboard */
 
-"LABEL_NOTIFICATION_PASTEBOARD_TITLE"               = "剪貼簿內容已轉換！";
-"LABEL_NOTIFICATION_PASTEBOARD_INFO_TEXT"           = "費時：%f 秒";
-"LABEL_NOTIFICATION_PASTEBOARD_PROGRESS_INFO_TEXT"  = "由%@轉換為%@。";
-"LABEL_CHINESE_TRADITIONAL"                         = "繁體中文";
-"LABEL_CHINESE_SIMPLIFIED"                          = "簡體中文";
+"LABEL_NOTIFICATION_PASTEBOARD_TITLE"              = "剪貼簿內容已轉換！";
+"LABEL_NOTIFICATION_PASTEBOARD_INFO_TEXT"          = "費時：%f 秒";
+"LABEL_NOTIFICATION_PASTEBOARD_PROGRESS_INFO_TEXT" = "由%@轉換為%@。";
+"LABEL_CHINESE_TRADITIONAL"                        = "繁體中文";
+"LABEL_CHINESE_SIMPLIFIED"                         = "簡體中文";
 
 /* File Types */
 
-"FILE_ENCODING_TYPE_UNKNOWN"                        = "無法識別";
-"FILE_ENCODING_TYPE_BIG5"                           = "Big-5";
-"FILE_ENCODING_TYPE_GB18030"                        = "GB-18030";
-"FILE_ENCODING_TYPE_UTF8"                           = "UTF-8";
-"FILE_ENCODING_TYPE_UTF16"                          = "UTF-16";
+"FILE_ENCODING_TYPE_UNKNOWN"                       = "無法識別";
+"FILE_ENCODING_TYPE_BIG5"                          = "Big-5";
+"FILE_ENCODING_TYPE_GB18030"                       = "GB-18030";
+"FILE_ENCODING_TYPE_UTF8"                          = "UTF-8";
+"FILE_ENCODING_TYPE_UTF16"                         = "UTF-16";

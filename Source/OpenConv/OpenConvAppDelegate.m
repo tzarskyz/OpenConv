@@ -186,20 +186,20 @@
     if(remoteCFBundleShortVersionString) {
         if ([localCFBundleShortVersionString isEqualToString:remoteCFBundleShortVersionString]) {
             if (feedback) {
-                NSAlert *alert = [NSAlert alertWithMessageText:@"We are up-to-date!"
-                                                 defaultButton:@"Nice"
+                NSAlert *alert = [NSAlert alertWithMessageText:NSLocalizedString(@"LABEL_WE_ARE_UP_TO_DATE", nil)
+                                                 defaultButton:NSLocalizedString(@"LABEL_NICE", nil)
                                                alternateButton:nil
                                                    otherButton:nil
-                                     informativeTextWithFormat:@"You are using the latest version of %@.\n", [[NSRunningApplication currentApplication] localizedName]];
+                                     informativeTextWithFormat:NSLocalizedString(@"LABEL_YOU_ARE_USING_THE_LASTEST_VERSION_OF", nil), [[NSRunningApplication currentApplication] localizedName]];
                 [alert setAlertStyle:NSWarningAlertStyle];
                 [self performSelectorOnMainThread:@selector(alertNoUpdateOnMainThread:) withObject:alert waitUntilDone:NO];
             }
         } else {
-            NSAlert *alert = [NSAlert alertWithMessageText:@"New Version Available!"
-                                             defaultButton:@"Sure"
-                                           alternateButton:@"Maybe Next Time"
-                                               otherButton:@"Release Note"
-                                 informativeTextWithFormat:@"There's a new version available for download:\n\nVersion %@ (You have %@)\n\nWould you like to download it now?\n",
+            NSAlert *alert = [NSAlert alertWithMessageText:NSLocalizedString(@"LABEL_NEW_VERSION_AVAILABLE", nil)
+                                             defaultButton:NSLocalizedString(@"LABEL_SURE", nil)
+                                           alternateButton:NSLocalizedString(@"LABEL_MAYBE_NEXT_TIME", nil)
+                                               otherButton:NSLocalizedString(@"LABEL_RELEASE_NOTE", nil)
+                                 informativeTextWithFormat:NSLocalizedString(@"LABEL_THERE_IS_A_NEW_VERSION", nil),
                               remoteCFBundleShortVersionString,
                               localCFBundleShortVersionString];
             [alert setAlertStyle:NSWarningAlertStyle];
