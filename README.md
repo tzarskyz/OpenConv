@@ -33,9 +33,14 @@ installed.
 Changelog
 ---------
 
-v1.1:
+v1.2:
+* New Feature: Check for updates.
+* New Feature: Add icon.
 * Bug fix.
-* Add filename converting function.
+
+v1.1:
+* New Feature: Add filename converting function.
+* Bug fix.
 
 v1.0:
 * Initial release.
@@ -58,3 +63,5 @@ GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
 along with this program. If not, see <http://www.gnu.org/licenses/>.
+
+Icon designed by [Turbomilk](http://www.turbomilk.com). (info@turbomilk.com)

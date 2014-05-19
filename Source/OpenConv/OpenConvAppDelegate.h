@@ -21,11 +21,15 @@
 #import <Cocoa/Cocoa.h>
 #import "GlassWindow.h"
 
-#define define_githubURL                   @"https://github.com/x43x61x69/OpenConv"
+#define CONST_DEVELOPER_URL       @"http://reversi.ng"
+#define CONST_RELEASE_NOTE_URL    @"https://github.com/x43x61x69/OpenConv#changelog"
+#define CONST_SUPPORT_URL         @"https://github.com/x43x61x69/OpenConv/issues"
+#define CONST_UPDATE_CHECK_URL    @"https://raw.githubusercontent.com/x43x61x69/OpenConv/master/Source/OpenConv/OpenConv-Info.plist"
+#define CONST_UPDATE_DOWNLOAD_URL @"https://github.com/x43x61x69/OpenConv/raw/master/Release/OpenConv.zip"
 #define define_UserDefaultsVersion         @"1.0"
 #define define_UserDefaultsResetIsNeeded   NO
 
-@interface OpenConvAppDelegate : NSObject <NSApplicationDelegate> {
+@interface OpenConvAppDelegate : NSObject <NSApplicationDelegate, NSUserNotificationCenterDelegate> {
     
     NSUserDefaults          *defaults_UserDefaults;
     GlassWindow             *win_mainWindow;
@@ -36,6 +40,8 @@
 @property (strong) IBOutlet GlassWindow     *win_mainWindow;
 
 // IB actions.
-- (IBAction)goToGithub:(id)sender;
+- (IBAction)update:(id)sender;
+- (IBAction)getSupport:(id)sender;
+- (IBAction)developerWebsite:(id)sender;
 
 @end

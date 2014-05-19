@@ -39,6 +39,7 @@
     // Push things via Notification Center.
     [[NSUserNotificationCenter defaultUserNotificationCenter] setDelegate:self];
     
+    [self performSelectorInBackground:@selector(checkUpdateWithFeedback:) withObject:[NSNumber numberWithBool:NO]];
     
     // Define objects.
     BOOL            bool_olderUserDefaultsVersionExisted;
@@ -160,12 +161,69 @@
     }
 }
 
+- (void)alertNoUpdateOnMainThread:(NSAlert *)theAlert
+{
+    [theAlert runModal];
+}
+
+- (void)alertUpdateOnMainThread:(NSAlert *)theAlert
+{
+    NSInteger returnCode = [theAlert runModal];
+    if (returnCode == 1) {
+        [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:CONST_UPDATE_DOWNLOAD_URL]];
+    } else if (returnCode != 0) {
+        [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:CONST_RELEASE_NOTE_URL]];
+    } else {
+        // Do nothing.
+    }
+}
+
+- (void)checkUpdateWithFeedback:(BOOL)feedback
+{
+    NSURL *requestResult = [NSURL URLWithString:CONST_UPDATE_CHECK_URL];
+    NSString *remoteCFBundleShortVersionString = [[NSDictionary dictionaryWithContentsOfURL:requestResult] objectForKey:@"CFBundleShortVersionString"];
+    NSString *localCFBundleShortVersionString  = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+    if(remoteCFBundleShortVersionString) {
+        if ([localCFBundleShortVersionString isEqualToString:remoteCFBundleShortVersionString]) {
+            if (feedback) {
+                NSAlert *alert = [NSAlert alertWithMessageText:@"We are up-to-date!"
+                                                 defaultButton:@"Nice"
+                                               alternateButton:nil
+                                                   otherButton:nil
+                                     informativeTextWithFormat:@"You are using the latest version of %@.\n", [[NSRunningApplication currentApplication] localizedName]];
+                [alert setAlertStyle:NSWarningAlertStyle];
+                [self performSelectorOnMainThread:@selector(alertNoUpdateOnMainThread:) withObject:alert waitUntilDone:NO];
+            }
+        } else {
+            NSAlert *alert = [NSAlert alertWithMessageText:@"New Version Available!"
+                                             defaultButton:@"Sure"
+                                           alternateButton:@"Maybe Next Time"
+                                               otherButton:@"Release Note"
+                                 informativeTextWithFormat:@"There's a new version available for download:\n\nVersion %@ (You have %@)\n\nWould you like to download it now?\n",
+                              remoteCFBundleShortVersionString,
+                              localCFBundleShortVersionString];
+            [alert setAlertStyle:NSWarningAlertStyle];
+            [self performSelectorOnMainThread:@selector(alertUpdateOnMainThread:) withObject:alert waitUntilDone:NO];
+        }
+    }
+}
+
 
 #pragma mark - Misc
 
-- (IBAction)goToGithub:(id)sender
+- (IBAction)update:(id)sender
 {
-    [[NSWorkspace sharedWorkspace] openURL: [NSURL URLWithString:define_githubURL]];
+    [self performSelectorInBackground:@selector(checkUpdateWithFeedback:) withObject:[NSNumber numberWithBool:YES]];
+}
+
+- (IBAction)getSupport:(id)sender
+{
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:CONST_SUPPORT_URL]];
+}
+
+- (IBAction)developerWebsite:(id)sender
+{
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:CONST_DEVELOPER_URL]];
 }
 
 - (void)openConvErrorLog:(NSString *)anError
